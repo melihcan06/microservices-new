@@ -1,0 +1,6 @@
+--ayni contarinerlari calstirmayi yap,
+--farkli calisinca vt ları gidiyor
+--postgre de database yi kendim oluşturdum order_service ve inventory_service
+docker run -d -p 27017:27017 mongo:latest
+docker run --name postgre_order -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:15
+docker run --name postgre_inventory -e POSTGRES_PASSWORD=password -d -p 5433:5432 postgres:15
