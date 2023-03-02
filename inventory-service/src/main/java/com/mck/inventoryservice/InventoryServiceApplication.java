@@ -4,11 +4,13 @@ import com.mck.inventoryservice.model.*;
 import com.mck.inventoryservice.repository.*;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.*;
 import org.springframework.cloud.netflix.eureka.*;
 import org.springframework.context.annotation.*;
 
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
+@EnableDiscoveryClient
 public class InventoryServiceApplication {
 
     public static void main(String[] args) {
