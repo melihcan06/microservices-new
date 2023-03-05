@@ -4,3 +4,4 @@
 docker run -d -p 27017:27017 mongo:latest
 docker run --name postgre_order -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:15
 docker run --name postgre_inventory -e POSTGRES_PASSWORD=password -d -p 5433:5432 postgres:15
+docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:21.0.1 start-dev

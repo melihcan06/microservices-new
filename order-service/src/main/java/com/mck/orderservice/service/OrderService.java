@@ -17,7 +17,7 @@ import java.util.*;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;//Bean olarak verdigimiz method WebClientConfig deki
+    private final WebClient.Builder webClientBuilder;//Bean olarak verdigimiz method WebClientConfig deki
 
     public void placeOrder(OrderRequest orderRequest){
         Order order = new Order();
@@ -32,7 +32,7 @@ public class OrderService {
         List<String> skuCodes = order.getOrderLineItemsList().stream().map(OrderLineItems::getSkuCode).toList();
 
         //TODO Call Inventory Service and place order if producrt is in stock
-        InventoryResponse[] inventoryResponseArray = webClient.get()
+        InventoryResponse[] inventoryResponseArray = webClientBuilder.build().get()
                 .uri(Constants.INVENTORY_URI,
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                 .retrieve()
